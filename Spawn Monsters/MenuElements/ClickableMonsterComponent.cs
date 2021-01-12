@@ -41,7 +41,7 @@ namespace Spawn_Monsters
 
 
         public void PerformHoverAction(int x, int y) {
-            if (Monster != Monster.CursedDoll && Monster != Monster.PutridGhost && Monster != Monster.RoyalSerpent) {
+            if (Monster != Monster.CursedDoll && Monster != Monster.PutridGhost && Monster != Monster.RoyalSerpent && Monster != Monster.Spiker) {
                 if (containsPoint(x, y)) {
                     Sprite.Animate(Game1.currentGameTime, StartFrame, NumberOfFrames, Interval);
                 } else {
