@@ -46,7 +46,18 @@ namespace Spawn_Monsters.Monsters
             Skeleton,
             SquidKid,
             PepperRex,
-            BigSlime
+            BigSlime,
+            HotHead,
+            RoyalSerpent,
+            PutridGhost,
+            BlueSquid,
+            DwarvishSentry,
+            Shooter,
+            Spider,
+            LavaLurk,
+            MagmaSprite,
+            MagmaSparker,
+            SkeletonMage
         }
 
         private static readonly Dictionary<Monster, MonsterData> data = new Dictionary<Monster, MonsterData>() {
@@ -101,11 +112,21 @@ namespace Spawn_Monsters.Monsters
             { Monster.ShadowBrute, new MonsterData("Shadow Brute", typeof(ShadowBrute), new object[] { null }, "Shadow Brute", 16, 32) },
             { Monster.ShadowShaman, new MonsterData("Shadow Shaman", typeof(ShadowShaman), new object[] { null }, "Shadow Shaman") },
 
-            { Monster.Skeleton, new MonsterData("Skeleton", typeof(Skeleton), new object[] { null }, "Skeleton", 16, 32) },
+            { Monster.Skeleton, new MonsterData("Skeleton", typeof(Skeleton), new object[] { null, false }, "Skeleton", 16, 32) },
 
-            { Monster.SquidKid, new MonsterData("Squid Kid", typeof(SquidKid), new object[] { null }, "Squid Kid", 16, 16) }
+            { Monster.SquidKid, new MonsterData("Squid Kid", typeof(SquidKid), new object[] { null }, "Squid Kid", 16, 16) },
 
-
+            { Monster.HotHead, new MonsterData("Hot Head", typeof(HotHead), new object[] { null }, "Hot Head", 16, 16) },
+            { Monster.RoyalSerpent, new MonsterData("Royal Serpent", typeof(Serpent), new object[] { null, "Royal Serpent" }, "Royal Serpent", 32, 32, 0, 9) },
+            { Monster.PutridGhost, new MonsterData("Putrid Ghost", typeof(Ghost), new object[] { null, "Putrid Ghost" }, "Putrid Ghost", 16, 32) },
+            { Monster.BlueSquid, new MonsterData("Blue Squid", typeof(BlueSquid), new object[] { null }, "Blue Squid", 16, 16) },
+            { Monster.DwarvishSentry, new MonsterData("Dwarvish Sentry", typeof(DwarvishSentry), new object[] { null }, "Dwarvish Sentry", 16, 16) },
+            { Monster.Shooter, new MonsterData("Shadow Sniper", typeof(Shooter), new object[] { null }, "Shadow Sniper", 16, 32) },
+            { Monster.Spider, new MonsterData("Spider", typeof(Leaper), new object[] { null }, "Spider", 16, 32) },
+            { Monster.LavaLurk, new MonsterData("Lava Lurk", typeof(LavaLurk), new object[] { null }, "Lava Lurk", 16, 16) },
+            { Monster.MagmaSprite, new MonsterData("Magma Sprite", typeof(Bat), new object[] { null, -555 }, "Magma Sprite", 16, 16) },
+            { Monster.MagmaSparker, new MonsterData("Magma Sparker", typeof(Bat), new object[] { null, -556 }, "Magma Sparker", 16, 16) },
+            { Monster.SkeletonMage, new MonsterData("Skeleton Mage", typeof(Skeleton), new object[] { null, true }, "Skeleton Mage", 16, 32) }
         };
 
 

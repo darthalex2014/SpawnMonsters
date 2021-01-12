@@ -13,8 +13,8 @@ namespace Spawn_Monsters
     {
 
         /*********
-		** Properties
-		*********/
+        ** Properties
+        *********/
         /// <summary>The mod configuration from the player.</summary>
         public ModConfig config;
 
@@ -116,61 +116,16 @@ namespace Spawn_Monsters
             } else { Monitor.Log("Load a save first!"); }
         }
 
-        public void MonsterList(string command, string[] args) {
-            Monitor.Log("Monsters available to spawn:\n\n" +
-                "Slimes:\n" +
-                "\tGreen Slime\n" +
-                "\tFrost Jelly\n" +
-                "\tRed Sludge\n" +
-                "\tPurple Sludge\n" +
-                "\tYellow Slime\n" +
-                "\tBlack Slime\n" +
-                "\tGray Sludge\n\n" +
+        public void MonsterList(string command, string[] args)
+        {
+            var monsterList = new MonsterList();
 
-                "Bats:\n" +
-                "\tBat\n" +
-                "\tFrost Bat\n" +
-                "\tLava Bat\n" +
-                "\tIridium Bat\n\n" +
-
-                "Bugs:\n" +
-                "\tBug\n" +
-                "\tArmored Bug\n\n" +
-
-                "Flies: \n" +
-                "\tCave Fly\n" +
-                "\tGrub\n" +
-                "\tMutant Fly\n" +
-                "\tMutant Grub\n\n" +
-
-                "Ghosts:\n" +
-                "\tGhosts\n" +
-                "\tCarbon Ghost\n\n" +
-
-                "Crabs:\n" +
-                "\tRock Crab\n" +
-                "\tLava Crab\n" +
-                "\tIridium Crab\n\n" +
-
-                "Golems:\n" +
-                "\tRock Golem\n" +
-                "\tWilderness Golem\n\n" +
-
-                "Other:\n" +
-                "\tCursed Doll\n" +
-                "\tDuggy\n" +
-                "\tDust Sprite\n" +
-                "\tHaunted Skull\n" +
-                "\tMetal Head\n" +
-                "\tMummy\n" +
-                "\tSerpent\n" +
-                "\tShadow Brute\n" +
-                "\tShadow Shaman\n" +
-                "\tSkeleton\n" +
-                "\tSquid Kid\n\n" +
-
-                "Use these names with 'monster_spawn'\n" +
-                "Keep in mind that some monsters don't work properly outside of the farm and the mines!", LogLevel.Info);
+            Monitor.Log(
+                "Monsters available to spawn:\n\n" +
+                monsterList.ToString() +
+                "\n\nUse these names with 'monster_spawn'.\n" +
+                "Keep in mind that some monsters don't work properly outside of the farm and the mines!\n"
+            , LogLevel.Info);
         }
 
         public void MonsterMenu(string command, string[] args) {
