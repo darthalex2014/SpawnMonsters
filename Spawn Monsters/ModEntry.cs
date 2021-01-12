@@ -1,10 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.Xna.Framework;
 using Spawn_Monsters.Monsters;
 using Spawn_Monsters.MonsterSpawning;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
-using System;
 
 namespace Spawn_Monsters
 {
@@ -116,61 +118,112 @@ namespace Spawn_Monsters
             } else { Monitor.Log("Load a save first!"); }
         }
 
-        public void MonsterList(string command, string[] args) {
-            Monitor.Log("Monsters available to spawn:\n\n" +
-                "Slimes:\n" +
-                "\tGreen Slime\n" +
-                "\tFrost Jelly\n" +
-                "\tRed Sludge\n" +
-                "\tPurple Sludge\n" +
-                "\tYellow Slime\n" +
-                "\tBlack Slime\n" +
-                "\tGray Sludge\n\n" +
+        public void MonsterList(string command, string[] args)
+        {
+            var monstersDictionary = new Dictionary<string, string[]>() {
+                {"Slimes",
+                new string[] {
+                    "Green Slime",
+                    "Frost Jelly",
+                    "Red Sludge",
+                    "Purple Sludge",
+                    "Yellow Slime",
+                    "Black Slime",
+                    "Gray Sludge",
+                    "BigSlime"
+                }},
+                {"Bats",
+                new string[] {
+                    "Bat",
+                    "Frost Bat",
+                    "Lava Bat",
+                    "Iridium Bat"
+                }},
+                {"Bugs",
+                new string[] {
+                    "Bug",
+                    "Armored Bug"
+                }},
+                {"Flies",
+                new string[] {
+                    "Cave Fly",
+                    "Grub",
+                    "Mutant Fly",
+                    "Mutant Grub"
+                }},
+                {"Ghosts",
+                new string[] {
+                    "Ghosts",
+                    "Carbon Ghost",
+                    "PutridGhost"
+                }},
+                {"Crabs",
+                new string[] {
+                    "Rock Crab",
+                    "Lava Crab",
+                    "Iridium Crab"
+                }},
+                {"Golems",
+                new string[] {
+                    "Rock Golem",
+                    "Wilderness Golem"
+                }},
+                {"Serpents",
+                new string[] {
+                    "RoyalSerpent",
+                    "Serpent"
+                }},
+                {"Shadows",
+                new string[] {
+                    "Shadow Brute",
+                    "Shadow Shaman",
+                }},
+                {"Magma Sprites",
+                new string[] {
+                    "MagmaSprite",
+                    "MagmaSparker"
+                }},
+                {"Squids",
+                new string[] {
+                    "BlueSquid",
+                    "Squid Kid"
+                }},
+                {"Skeletons",
+                new string[] {
+                    "Skeleton",
+                    "SkeletonMage"
+                }},
+                {"Other",
+                new string[] {
+                    "Cursed Doll",
+                    "Duggy",
+                    "Dust Sprite",
+                    "DwarvishSentry",
+                    "Haunted Skull",
+                    "Hot Head",
+                    "Lava Lurk",
+                    "Metal Head",
+                    "Mummy",
+                    "Pepper Rex",
+                    "Shooter",
+                    "Spider"
+                }}
+            };
 
-                "Bats:\n" +
-                "\tBat\n" +
-                "\tFrost Bat\n" +
-                "\tLava Bat\n" +
-                "\tIridium Bat\n\n" +
+            Monitor.Log(
+                "Monsters available to spawn:\n\n" +
 
-                "Bugs:\n" +
-                "\tBug\n" +
-                "\tArmored Bug\n\n" +
+                String.Join(
+                    "\n\n",
+                    monstersDictionary.Select(kvp =>
+                        $"{kvp.Key}:\n\t" +
+                        $"{String.Join("\n\t", kvp.Value)}"
+                    )
+                ) +
 
-                "Flies: \n" +
-                "\tCave Fly\n" +
-                "\tGrub\n" +
-                "\tMutant Fly\n" +
-                "\tMutant Grub\n\n" +
-
-                "Ghosts:\n" +
-                "\tGhosts\n" +
-                "\tCarbon Ghost\n\n" +
-
-                "Crabs:\n" +
-                "\tRock Crab\n" +
-                "\tLava Crab\n" +
-                "\tIridium Crab\n\n" +
-
-                "Golems:\n" +
-                "\tRock Golem\n" +
-                "\tWilderness Golem\n\n" +
-
-                "Other:\n" +
-                "\tCursed Doll\n" +
-                "\tDuggy\n" +
-                "\tDust Sprite\n" +
-                "\tHaunted Skull\n" +
-                "\tMetal Head\n" +
-                "\tMummy\n" +
-                "\tSerpent\n" +
-                "\tShadow Brute\n" +
-                "\tShadow Shaman\n" +
-                "\tSkeleton\n" +
-                "\tSquid Kid\n\n" +
-
-                "Use these names with 'monster_spawn'\n" +
-                "Keep in mind that some monsters don't work properly outside of the farm and the mines!", LogLevel.Info);
+                "\n\nUse these names with 'monster_spawn'.\n" +
+                "Keep in mind that some monsters don't work properly outside of the farm and the mines!\n"
+            , LogLevel.Info);
         }
 
         public void MonsterMenu(string command, string[] args) {
