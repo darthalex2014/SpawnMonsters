@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Spawn_Monsters.Monsters;
 using Spawn_Monsters.MonsterSpawning;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
+using System;
 
 namespace Spawn_Monsters
 {
@@ -15,8 +13,8 @@ namespace Spawn_Monsters
     {
 
         /*********
-		** Properties
-		*********/
+        ** Properties
+        *********/
         /// <summary>The mod configuration from the player.</summary>
         public ModConfig config;
 
@@ -120,107 +118,11 @@ namespace Spawn_Monsters
 
         public void MonsterList(string command, string[] args)
         {
-            var monstersDictionary = new Dictionary<string, string[]>() {
-                {"Slimes",
-                new string[] {
-                    "Green Slime",
-                    "Frost Jelly",
-                    "Red Sludge",
-                    "Purple Sludge",
-                    "Yellow Slime",
-                    "Black Slime",
-                    "Gray Sludge",
-                    "BigSlime"
-                }},
-                {"Bats",
-                new string[] {
-                    "Bat",
-                    "Frost Bat",
-                    "Lava Bat",
-                    "Iridium Bat"
-                }},
-                {"Bugs",
-                new string[] {
-                    "Bug",
-                    "Armored Bug"
-                }},
-                {"Flies",
-                new string[] {
-                    "Cave Fly",
-                    "Grub",
-                    "Mutant Fly",
-                    "Mutant Grub"
-                }},
-                {"Ghosts",
-                new string[] {
-                    "Ghosts",
-                    "Carbon Ghost",
-                    "PutridGhost"
-                }},
-                {"Crabs",
-                new string[] {
-                    "Rock Crab",
-                    "Lava Crab",
-                    "Iridium Crab"
-                }},
-                {"Golems",
-                new string[] {
-                    "Rock Golem",
-                    "Wilderness Golem"
-                }},
-                {"Serpents",
-                new string[] {
-                    "RoyalSerpent",
-                    "Serpent"
-                }},
-                {"Shadows",
-                new string[] {
-                    "Shadow Brute",
-                    "Shadow Shaman",
-                }},
-                {"Magma Sprites",
-                new string[] {
-                    "MagmaSprite",
-                    "MagmaSparker"
-                }},
-                {"Squids",
-                new string[] {
-                    "BlueSquid",
-                    "Squid Kid"
-                }},
-                {"Skeletons",
-                new string[] {
-                    "Skeleton",
-                    "SkeletonMage"
-                }},
-                {"Other",
-                new string[] {
-                    "Cursed Doll",
-                    "Duggy",
-                    "Dust Sprite",
-                    "DwarvishSentry",
-                    "Haunted Skull",
-                    "Hot Head",
-                    "Lava Lurk",
-                    "Metal Head",
-                    "Mummy",
-                    "Pepper Rex",
-                    "Shooter",
-                    "Spider"
-                }}
-            };
+            var monsterList = new MonsterList();
 
             Monitor.Log(
                 "Monsters available to spawn:\n\n" +
-
-                String.Join(
-                    "\n\n",
-                    monstersDictionary.Select(kvp =>
-                        $"{kvp.Key}:\n\t" +
-                        $"{String.Join("\n\t", kvp.Value)}"
-                    )
-                ) +
-
+                monsterList.ToString() +
                 "\n\nUse these names with 'monster_spawn'.\n" +
                 "Keep in mind that some monsters don't work properly outside of the farm and the mines!\n"
             , LogLevel.Info);
