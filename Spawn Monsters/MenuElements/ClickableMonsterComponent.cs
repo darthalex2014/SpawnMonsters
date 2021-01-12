@@ -25,7 +25,7 @@ namespace Spawn_Monsters
         public ClickableMonsterComponent(Monster monster, string textureName, int xPosition, int yPosition, int width, int height, int spriteWidth = 16, int spriteHeight = 24, int startFrame = 0, int numberOfFrames = 4, float interval = 100, Color color = default)
             : base(new Rectangle(xPosition, yPosition, width, height), textureName) {
 
-            if (!monster.Equals(Monster.CursedDoll)) {
+            if (monster != Monster.CursedDoll) {
                 Sprite = new AnimatedSprite($"Characters\\Monsters\\{textureName}", startFrame, spriteWidth, spriteHeight);
 
                 StartFrame = startFrame;
@@ -41,7 +41,7 @@ namespace Spawn_Monsters
 
 
         public void PerformHoverAction(int x, int y) {
-            if (Monster != Monster.CursedDoll) {
+            if (Monster != Monster.CursedDoll && Monster != Monster.PutridGhost && Monster != Monster.RoyalSerpent) {
                 if (containsPoint(x, y)) {
                     Sprite.Animate(Game1.currentGameTime, StartFrame, NumberOfFrames, Interval);
                 } else {
