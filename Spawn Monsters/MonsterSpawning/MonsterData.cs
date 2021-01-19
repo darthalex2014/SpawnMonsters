@@ -142,8 +142,7 @@ namespace Spawn_Monsters.Monsters
             { Monster.BlueSquid, new MonsterData("Blue Squid", typeof(BlueSquid), new object[] { null }, "Blue Squid", 24, 24) },
             { Monster.RoyalSerpent, new MonsterData("Royal Serpent", typeof(Serpent), new object[] { null, "Royal Serpent" }, "Royal Serpent", 32, 32) },
 
-            // TODO: This one drops a quest item which you cant get rid of if you already completed the quest.
-            //{ Monster.PrismaticSlime, new MonsterData("Prismatic Slime", typeof(GreenSlime), new object[]{ null, 0 }, "Green Slime")},
+            { Monster.PrismaticSlime, new MonsterData("Prismatic Slime", typeof(GreenSlime), new object[]{ null, 0 }, "Green Slime")},
         };
 
 

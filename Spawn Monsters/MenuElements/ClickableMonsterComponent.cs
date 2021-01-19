@@ -57,6 +57,8 @@ namespace Spawn_Monsters
 
             if (Monster == Monster.CursedDoll) {
                 b.Draw(Game1.objectSpriteSheet, new Rectangle(bounds.X, bounds.Y, 16 * 4, 16 * 4), new Rectangle?(Game1.getSourceRectForStandardTileSheet(Game1.objectSpriteSheet, 103, 16, 16)), new Color(255, 50, 50));
+            } else if (Monster == Monster.PrismaticSlime) {
+                Sprite.draw(b, new Vector2(bounds.X, bounds.Y), 1, 0, 0, Utility.GetPrismaticColor(348, 5f), false, 4);
             } else {
                 Sprite.draw(b, new Vector2(bounds.X, bounds.Y), 1, 0, 0, (color == default ? Color.White : color), false, 4);
             }
