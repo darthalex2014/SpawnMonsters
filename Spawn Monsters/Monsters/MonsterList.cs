@@ -16,7 +16,8 @@ namespace Spawn_Monsters.Monsters
                     "Yellow Slime",
                     "Black Slime",
                     "Gray Sludge",
-                    "BigSlime"
+                    "Big Slime",
+                    "Prismatic Slime"
                 }},
                 {"Bats",
                 new string[] {
@@ -41,7 +42,7 @@ namespace Spawn_Monsters.Monsters
                 new string[] {
                     "Ghosts",
                     "Carbon Ghost",
-                    "PutridGhost"
+                    "Putrid Ghost"
                 }},
                 {"Crabs",
                 new string[] {
@@ -51,12 +52,12 @@ namespace Spawn_Monsters.Monsters
                 }},
                 {"Golems",
                 new string[] {
-                    "Rock Golem",
+                    "Stone Golem",
                     "Wilderness Golem"
                 }},
                 {"Serpents",
                 new string[] {
-                    "RoyalSerpent",
+                    "Royal Serpent",
                     "Serpent"
                 }},
                 {"Shadows",
@@ -66,25 +67,25 @@ namespace Spawn_Monsters.Monsters
                 }},
                 {"Magma Sprites",
                 new string[] {
-                    "MagmaSprite",
-                    "MagmaSparker"
+                    "Magma Sprite",
+                    "Magma Sparker"
                 }},
                 {"Squids",
                 new string[] {
-                    "BlueSquid",
+                    "Blue Squid",
                     "Squid Kid"
                 }},
                 {"Skeletons",
                 new string[] {
                     "Skeleton",
-                    "SkeletonMage"
+                    "Skeleton Mage"
                 }},
                 {"Other",
                 new string[] {
                     "Cursed Doll",
                     "Duggy",
                     "Dust Sprite",
-                    "DwarvishSentry",
+                    "Dwarvish Sentry",
                     "Haunted Skull",
                     "Hot Head",
                     "Lava Lurk",
