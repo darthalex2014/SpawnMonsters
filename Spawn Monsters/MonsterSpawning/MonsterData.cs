@@ -184,7 +184,7 @@ namespace Spawn_Monsters.Monsters
         }
 
         public ClickableMonsterComponent ToClickableMonsterComponent(Monster monster) {
-            return new ClickableMonsterComponent(monster, Texturename, 0, 0, Texturewidth * 4, Textureheight * 4, Texturewidth, Textureheight, StartingFrame, NumberOfFrames, AnimatingInterval, TextureColor);
+            return new ClickableMonsterComponent(monster, Texturename, 0, 0, monster == Monster.Spider ? 16 * 4 : Texturewidth * 4,  monster == Monster.Spider ? 16 * 4 : Textureheight * 4, Texturewidth, Textureheight, StartingFrame, NumberOfFrames, AnimatingInterval, TextureColor);
         }
 
         public static List<ClickableMonsterComponent> ToClickableMonsterComponents() {
