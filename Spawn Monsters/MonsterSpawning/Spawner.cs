@@ -73,7 +73,7 @@ namespace Spawn_Monsters.MonsterSpawning
                         m.objectsToDrop.Add("(O)380");
                     }
                     m.Speed = 1;
-                } else if (monster == MonsterData.Monster.Duggy || monster == MonsterData.Monster.WildernessGolem) {
+                } else if (monster == MonsterData.Monster.Duggy || monster == MonsterData.Monster.MagmaDuggy || monster == MonsterData.Monster.WildernessGolem) {
                     m.setTileLocation(location); //For Tile-Locked Monsters like Duggy
                 } else if (monster == MonsterData.Monster.StickBug) {
                     (m as RockCrab).makeStickBug();
