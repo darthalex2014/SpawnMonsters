@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Spawn_Monsters.Monsters;
+using StardewModdingAPI;
 using StardewValley;
 using StardewValley.Menus;
 using System;
@@ -10,6 +11,7 @@ namespace Spawn_Monsters.MonsterMenu
 {
     internal class MonsterSelectionTabNew : IClickableMenu
     {
+        private readonly IModHelper modHelper;
         private readonly List<ClickableComponent> clickableComponents = new List<ClickableComponent>();
         private readonly int maxColums = 20;
         private readonly int maxRows = 20;
@@ -17,8 +19,9 @@ namespace Spawn_Monsters.MonsterMenu
         private readonly int defaultTextureHeight = 8 * 4;
         private readonly int clearing = 8;
 
-        public MonsterSelectionTabNew(int x, int y, int width, int height) :
+        public MonsterSelectionTabNew(IModHelper modHelper, int x, int y, int width, int height) :
             base(x, y, width, height) {
+            this.modHelper = modHelper;
             LayoutMonsters(MonsterData.ToClickableMonsterComponents());
         }
 
@@ -159,7 +162,7 @@ namespace Spawn_Monsters.MonsterMenu
                 foreach (ClickableComponent monster in clickableComponents) {
                     if (monster.GetType() == typeof(ClickableMonsterComponent) && monster.containsPoint(x, y)) {
                         ClickableMonsterComponent m = (ClickableMonsterComponent)monster;
-                        Game1.activeClickableMenu = new MonsterPlaceMenu(m.Monster, m.Sprite);
+                        Game1.activeClickableMenu = new MonsterPlaceMenu(modHelper, m.Monster, m.Sprite);
                     }
                 }
                 base.receiveLeftClick(x, y, true);
